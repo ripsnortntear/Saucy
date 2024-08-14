@@ -450,6 +450,16 @@ public unsafe class LimbManager : IDisposable
         return FPSRequirements.SafeSelect(C.LimbDifficulty)?.SafeSelect(C.Tolerance) ?? -1;
     }
 
+    private LimbDifficulty GetRandomLimbDifficulty()
+    {
+        if (C.RandomizeDifficulty)
+            {
+                var values = Enum.GetValues(typeof(LimbDifficulty));
+                return (LimbDifficulty)_random.Next(values.Length);
+            }
+        return C.Difficulty;
+    }
+
     public void DrawSettings()
     {
         var save = false;
