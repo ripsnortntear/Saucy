@@ -1,4 +1,4 @@
-﻿using ECommons.Configuration;
+using ECommons.Configuration;
 using System;
 using System.Reflection;
 
@@ -14,6 +14,4 @@ public class LimbConfig : IEzConfig
 		public int StopAt = 18;
 		public int HardStopAt = 12;
 		public LimbDifficulty LimbDifficulty = LimbDifficulty.Titan;
-                public LimbDifficulty Difficulty { get; set; }
-                public bool RandomizeDifficulty { get; set; }
 }
