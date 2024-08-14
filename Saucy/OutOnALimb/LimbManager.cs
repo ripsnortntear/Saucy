@@ -473,7 +473,7 @@ public unsafe class LimbManager : IDisposable
         ImGui.SameLine();
         if (ImGui.Button("Max")) GamesToPlay = 9999;
         ImGui.Checkbox($"Stop at next double down", ref Exit);
-
+        ImGui.Checkbox("Randomize Difficulty", ref C.RandomizeDifficulty);
         ImGui.Separator();
         ImGui.SetNextItemWidth(100f);
         save |= ImGuiEx.EnumCombo("Difficulty", ref C.LimbDifficulty);
