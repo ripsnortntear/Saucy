@@ -14,5 +14,12 @@ public class LimbConfig : IEzConfig
     public int StopAt = 18;
     public int HardStopAt = 12;
     public LimbDifficulty LimbDifficulty = LimbDifficulty.Titan;
-    public bool RandomizeDifficulty = false;
+}
+
+public enum LimbDifficulty
+{
+    Titan,
+    Morbol,
+    Cactuar,
+    Random
 }
