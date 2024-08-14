@@ -205,10 +205,11 @@ public unsafe class LimbManager : IDisposable
         {
             InteractWithClosestLimb();
         }
-        if (C.RandomizeDifficulty)
+        if (C.LimbDifficulty == LimbDifficulty.Random)
         {
             var values = Enum.GetValues(typeof(LimbDifficulty));
-            C.LimbDifficulty = (LimbDifficulty)_random.Next(values.Length - 1); // exclude Random value
+            var randomValues = values.Cast<LimbDifficulty>().Where(x => x != LimbDifficulty.Random).ToArray();
+            C.LimbDifficulty = randomValues[_random.Next(randomValues.Length)];
         }
         if (Svc.Condition[ConditionFlag.OccupiedInQuestEvent])
         {
