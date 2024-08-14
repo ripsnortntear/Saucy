@@ -192,6 +192,10 @@ public unsafe class LimbManager : IDisposable
         return ret;
     }
 
+
+
+
+
     private void Tick()
     {
         if (!C.EnableLimb) return;
@@ -200,6 +204,11 @@ public unsafe class LimbManager : IDisposable
         if (GamesToPlay > 0)
         {
             InteractWithClosestLimb();
+        }
+        if (C.RandomizeDifficulty)
+        {
+            var values = Enum.GetValues(typeof(LimbDifficulty));
+            C.LimbDifficulty = (LimbDifficulty)_random.Next(values.Length - 1); // exclude Random value
         }
         if (Svc.Condition[ConditionFlag.OccupiedInQuestEvent])
         {
